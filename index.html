@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--
+ @license
+ Copyright 2019 Google LLC. All Rights Reserved.
+ SPDX-License-Identifier: Apache-2.0
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Mapa: Ruta detallada hacia el destino seleccionado</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="module" src="./index.ts"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="map"></div>
+      <div id="sidebar">
+        <div>
+          <p>
+            <img src="https://demos.albertosaenz.com/BallenaNationalPark_CostaRica.jpg" class="img-fluid">
+          </p>
+          <p><h2>Ruta detallada hacia el destino seleccionado</h2></p>
+          <b>Partida:</b>
+          <select id="start">
+            <option value="Aeropuerto Juan Santamaría, Provincia de Alajuela">Aeropuerto Juan Santamaría</option>
+            <option value="Guanacaste (LIR ) Airport">Aeropuerto de Liberia, CRC</option>
+            <option value="Puntarenas, CRC">Puntarenas, CRC</option>
+            <option value="Limón, CRC">Limón, CRC</option>
+            
+          </select>
+          <br />
+          <b>Puntos de ruta (Waypoints):</b> <br />
+          <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br />
+          <select multiple id="waypoints">
+            <option value="San José, CRC">San José, CRC</option>
+            <option value="Heredia, CRC">Heredia, CRC</option>
+            <option value="Cartago, CRC">Cartago, CRC</option>
+            <option value="Guanacaste, CRC">Guanacaste, CRC</option>
+            <option value="Limón, CRC">Limón, CRC</option>
+            <option value="Alajuela, CRC">Alajuela, CRC</option>
+            <option value="Puntarenas, CRC">Puntarenas, CRC</option>
+          </select>
+          <br />
+          <b>Destino:</b>
+          <select id="end">
+          <option value="PARQUE NACIONAL MANUEL ANTONIO, CRC">PARQUE NACIONAL MANUEL ANTONIO, CRC</option>
+          <option value="PARQUE NACIONAL VOLCÁN POÁS, CRC">PARQUE NACIONAL VOLCÁN POÁS, CRC</option>
+          <option value="PARQUE NACIONAL VOLCÁN IRAZÚ, CRC">PARQUE NACIONAL VOLCÁN IRAZÚ, CRC</option>
+          <option value="PARQUE NACIONAL MARINO BALLENA, CRC">PARQUE NACIONAL MARINO BALLENA, CRC</option>
+          <option value="PARQUE NACIONAL TORTUGUERO, CRC">PARQUE NACIONAL TORTUGUERO, CRC</option>
+          <option value="PARQUE NACIONAL CORCOVADO, CRC">PARQUE NACIONAL CORCOVADO, CRC</option>
+          <option value="RESERVA BOSQUE NUBLOSO MONTEVERDE, CRC">RESERVA BOSQUE NUBLOSO MONTEVERDE, CRC</option>
+         <option value="PLAYA SÁMARA, CRC">PLAYA SÁMARA, CRC</option>
+          <option value="PLAYA FLAMINGO, CRC">PLAYA FLAMINGO, CRC</option>
+          <option value="PLAYA SANTA TERESA, CRC">PLAYA SANTA TERESA, CRC</option>
+          <option value="PLAYA PUNTA UVA, CRC">PLAYA PUNTA UVA, CRC</option>
+          <option value="ISLA TORTUGA, CRC">ISLA TORTUGA, CRC</option>
+        </select>
+          <br />
+          <input type="submit" id="submit" />
+        </div>
+        <div id="directions-panel"></div>
+      </div>
+    </div>
+
+    <!-- 
+     The `defer` attribute causes the callback to execute after the full HTML
+     document has been parsed. For non-blocking uses, avoiding race conditions,
+     and consistent behavior across browsers, consider loading using Promises
+     with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+    -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+      defer
+    ></script>
+  </body>
+</html>
